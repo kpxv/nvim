@@ -1,11 +1,11 @@
 return {
 	-- Main colorschemes
 	{
-		"folke/tokyonight.nvim",
+		"tiagovla/tokyodark.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme tokyonight-night]])
+			vim.cmd([[colorscheme tokyodark]])
 		end,
 	},
 
@@ -18,7 +18,8 @@ return {
 	{ "rebelot/kanagawa.nvim", lazy = false },
 	{ "olivercederborg/poimandres.nvim", lazy = false },
 	{ "water-sucks/darkrose.nvim", lazy = false },
-	{ "tiagovla/tokyodark.nvim", lazy = false },
+	-- { "tiagovla/tokyodark.nvim", lazy = false },
+    { "folke/tokyonight.nvim", lazy = false },
 
 	{
 		"nvim-lualine/lualine.nvim",
@@ -73,14 +74,17 @@ return {
 
 	{ 'folke/neodev.nvim', opts = {}, dependencies = { 'neovim/nvim-lspconfig' } },
 
-	{
-		'stevearc/aerial.nvim',
-		config = function()
-			require('aerial').setup()
-		end
-	},
+    {
+        'stevearc/aerial.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
+    },
 
-	{
+    {
 		'akinsho/toggleterm.nvim',
 		tag = '*',
 		config = function()
