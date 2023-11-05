@@ -1,12 +1,23 @@
 return {
     -- Main colorscheme
     {
-        "tiagovla/tokyodark.nvim",
+        "projekt0n/github-nvim-theme",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme tokyodark]])
+            vim.cmd([[colorscheme github_dark_dimmed]])
         end,
+    },
+
+    -- tmp
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {}
     },
 
     -- Other colorschemes
@@ -18,8 +29,9 @@ return {
     { "rebelot/kanagawa.nvim", lazy = false },
     { "olivercederborg/poimandres.nvim", lazy = false },
     { "water-sucks/darkrose.nvim", lazy = false },
-    -- { "tiagovla/tokyodark.nvim", lazy = false },
+    { "tiagovla/tokyodark.nvim", lazy = false },
     { "folke/tokyonight.nvim", lazy = false },
+    -- { 'projekt0n/github-nvim-theme', lazy = false },
 
     {
         "nvim-lualine/lualine.nvim",
@@ -67,7 +79,7 @@ return {
         branch = 'coq',
         config = function()
             vim.cmd([[COQnow --shut-up]])
-        end
+        end,
     },
 
     { 'williamboman/mason.nvim', lazy = false },

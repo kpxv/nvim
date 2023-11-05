@@ -9,6 +9,8 @@ local builtin = require('telescope.builtin')
 -- Multi-file navigation
 map('n', '<leader>pv', '<cmd>Ex<CR>')
 
+map("n", "<c-h>", "<null>")
+
 map("n", "<C-h>", "<cmd>wincmd h<CR>")
 map("n", "<C-j>", "<cmd>wincmd j<CR>")
 map("n", "<C-k>", "<cmd>wincmd k<CR>")

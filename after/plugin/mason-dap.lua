@@ -8,7 +8,8 @@ mdap.setup({
         'python',
         'c',
         'cpp',
-        'lua'
+        'lua',
+        'java'
     }
 })
 
