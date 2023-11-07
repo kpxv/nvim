@@ -76,6 +76,13 @@ map("n", "<leader>Y", "\"+Y")
 map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 map("n", "<CR>", "<cmd>nohls<CR>")
 
+-- Git
+map('n', '<leader>gd', '<cmd>Git diff<CR>')
+map('n', '<leader>ga', '<cmd>Git add -A<CR>')
+map('n', '<leader>gc', '<cmd>Git commit<CR>')
+map('n', '<leader>gph', '<cmd>Git push<CR>')
+map('n', '<leader>gpl', '<cmd>Git pull<CR>')
+
 -- Tree-sitter fix
 map("n", "<leader><CR>", "<cmd>write | edit | TSBufEnable highlight <CR>")
 
