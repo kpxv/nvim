@@ -48,6 +48,12 @@ return {
         dependencies = { 'nvim-tree/nvim-web-devicons', opts = true }
     },
 
+    -- Wordcount
+    {
+        "https://github.com/skwee357/nvim-prose",
+        config = true,
+    },
+
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
     {
