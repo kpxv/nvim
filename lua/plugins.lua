@@ -61,12 +61,6 @@ return {
         lazy = false,
         config = function()
             vim.cmd([[TSUpdate]])
-            require('nvim-treesitter.configs').setup {
-                context_commentstring = {
-                    enable = true,
-                    enable_autocmd = false,
-                },
-            }
         end
     },
 
@@ -107,16 +101,11 @@ return {
 
     {
         'numtostr/comment.nvim',
-        config = function()
-            require("Comment").setup {
-                pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-            }
-        end
+        config = true,
     },
 
     {
         'JoosepAlviste/nvim-ts-context-commentstring',
-        config = true
     },
 
     {
