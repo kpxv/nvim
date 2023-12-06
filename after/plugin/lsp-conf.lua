@@ -68,10 +68,11 @@ cmp.setup({
     sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'buffer' },
     },
     mapping = cmp.mapping.preset.insert({
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        ['C-space'] = cmp.mapping.complete(),
+        ['<C-space>'] = cmp.mapping.complete(),
         -- ['s-<tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -79,7 +80,7 @@ cmp.setup({
                 cmp.select_next_item()
                 -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
                 -- that way you will only jump inside the snippet region
-            elseif luasnip.expand_or_jumpable() then
+            elseif luasnip.expand_or_locally_jumpable() then
                 luasnip.expand_or_jump()
             else
                 fallback()

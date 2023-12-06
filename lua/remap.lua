@@ -39,6 +39,7 @@ map('n', '<c-d>', '<c-d>zz')
 map('n', '<c-u>', '<c-u>zz')
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map('n', 'zq', 'mz<cmd>AerialPrev<CR>zt`z')
 
 map("n", "<leader>u", vim.cmd.UndotreeToggle)
 
