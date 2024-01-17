@@ -87,6 +87,28 @@ map("n", "<leader>wl", function()
 end)
 map('n', '<leader>wp', '<cmd>MarkdownPreviewToggle<CR>')
 
+-- LaTeX & snippets
+vim.cmd [[
+    " Expand snippets in insert mode with Tab
+    imap <silent><expr> <A-Tab> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' : '<A-Tab>'
+
+    " Jump forward in through tabstops in insert and select mode with Tab
+    imap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+    smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+    imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+    smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+]]
+
+-- vim.cmd [[
+-- " Use Tab to expand and jump through snippets
+-- imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+-- smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+--
+-- " Use Shift-Tab to jump backwards through snippets
+-- imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+-- smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+-- ]]
+
 -- LSP actions
 map("n", "<leader>f", function() vim.lsp.buf.format({ 4, true, true, false, true }) end)
 map('n', '<leader>po', function() require('symbols-outline').toggle_outline() end)
