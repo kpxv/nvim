@@ -17,4 +17,11 @@ return {
     { t("\\alpha") }
     ),
 
+    require("luasnip").snippet({
+        trig=";b",
+        snippetType="autosnippet",
+        regTrig=false,
+    },{
+        t("\\beta")
+    })
 }

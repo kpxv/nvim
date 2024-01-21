@@ -11,14 +11,61 @@ local rep = require("luasnip.extras").rep
 
 return {
     s({
-        trig=";snip",
-        snippetType="autosnippet",
-    },
-    {
-        t("s({", "trig=\"$1\"",
-        "snippetType=\"$2\"",
-        "},{",
-        "{ t(\"$3\") }",
-        "}),")
+        trig = ";snippet",
+        snippetType = "autosnippet",
+        regTrig = false
+    }, {
+        t({ "require(\"luasnip\").snippet({", "\ttrig=\"" }),
+        i(1),
+        t({ "\",", "\tsnippetType=\"" }),
+        i(2),
+        t({ "\",", "\tregTrig=" }),
+        i(3),
+        t({ ",", "},{", "\t" }),
+        i(4),
+        t({ "", "})" })
     }),
+
+    require("luasnip").snippet({
+            trig = ";fmta",
+            snippetType = "autosnippet",
+            regTrig = false,
+        },
+        fmta([=[
+            require("luasnip").snippet({
+                    trig="<>",
+                    snippetType="<>",
+                    regTrig=<>,
+                },
+                fmta( [[
+                        <>
+                    ]],
+                    {
+                        <>
+                    })
+            ),
+        ]=],
+            {
+                i(1),
+                i(2),
+                i(3),
+                i(4),
+                i(5),
+            })
+    ),
+
+    require("luasnip").snippet({
+            trig = "(regTrig%=)true",
+            snippetType = "autosnippet",
+            regTrig = true,
+            wordTrig = false
+        },
+        fmta([[
+            regTrig=true,
+            wordTrig=false
+        ]],
+            {
+            })
+    ),
+
 }

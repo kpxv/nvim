@@ -134,6 +134,15 @@ return {
         lazy = false,
     },
 
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp",
+        lazy = false
+    },
+
     { 'williamboman/mason.nvim',           lazy = false },
     { 'williamboman/mason-lspconfig.nvim', lazy = false },
     { 'neovim/nvim-lspconfig',             lazy = false },
