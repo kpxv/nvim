@@ -124,6 +124,11 @@ return {
     },
 
     {
+        'lervag/vimtex',
+        lazy = false,
+    },
+
+    {
         'hrsh7th/nvim-cmp',
         dependencies = {
             'neovim/nvim-lspconfig',

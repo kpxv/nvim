@@ -21,6 +21,8 @@ map("n", "<C-n>", function() hui.nav_file(2) end)
 map("n", "<C-p>", function() hui.nav_file(3) end)
 map("n", "<C-i>", function() hui.nav_file(4) end)
 
+map ("n", "<BS>", "<cmd>b#<cr>")
+
 -- Buffer navigation
 map("n", "<C-h>", "<cmd>wincmd h<CR>")
 map("n", "<C-j>", "<cmd>wincmd j<CR>")
