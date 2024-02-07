@@ -23,5 +23,19 @@ return {
         regTrig=false,
     },{
         t("\\beta")
-    })
+    }),
+
+    require("luasnip").snippet({
+            trig=";deg",
+            snippetType="autosnippet",
+            regTrig=false,
+            wordTrig=false,
+        },
+        fmta( [[
+                $^{\circ}$ <>
+            ]],
+            {
+                i(0)
+            })
+    ),
 }

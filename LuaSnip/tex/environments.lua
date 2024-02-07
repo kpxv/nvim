@@ -58,6 +58,21 @@ return {
     ),
 
     require("luasnip").snippet({
+            trig="ima",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                \begin{enumerate}[label=\Alph*]
+                    <>
+                \end{enumerate}
+            ]],
+            {
+                i(1)
+            })
+    ),
+
+    require("luasnip").snippet({
         trig="`beg",
         snippetType="autosnippet",
         regTrig=false,
@@ -65,6 +80,7 @@ return {
     fmta( [[
             \documentclass{article}
             \usepackage{datetime}
+            \usepackage{enumitem}
             \newdate{date}{<>}{<>}{<>}
             \date{\displaydate{date}}
             \title{<>}

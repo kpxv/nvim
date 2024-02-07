@@ -10,7 +10,7 @@ local hui = require("harpoon.ui")
 local tbuiltin = require('telescope.builtin')
 
 -- File navigation
-map('n', '<leader>pv', '<cmd>Ex<CR>')
+map('n', '<leader>ja', '<cmd>Ex<CR>')
 map('n', '<leader>nn', '<cmd>Neotree toggle<CR>')
 
 map("n", "<leader>a", hmark.add_file)
@@ -30,7 +30,7 @@ map("n", "<C-k>", "<cmd>wincmd k<CR>")
 map("n", "<C-l>", "<cmd>wincmd l<CR>")
 
 -- Search files
-map('n', '<leader>pf', tbuiltin.find_files, {})
+map('n', '<leader>jj', tbuiltin.find_files, {})
 map('n', '<leader>gs', tbuiltin.git_files, {})
 map('n', '<leader>ps', function()
     tbuiltin.grep_string({ search = vim.fn.input("Grep > ") });
