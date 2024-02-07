@@ -105,11 +105,6 @@ return {
         lazy = false,
     },
     {
-        'ms-jpq/coq.artifacts',
-        branch = 'artifacts',
-        lazy = false,
-    },
-    {
         'ms-jpq/coq.thirdparty',
         branch = '3p',
         lazy = false,
@@ -121,6 +116,14 @@ return {
         opts = {
         },
     },
+
+    {
+       'L3MON4D3/LuaSnip',
+        version = "v2.*",
+        run = "make install_jsregexp",
+    },
+
+    { 'lervag/vimtex', lazy = false },
 
     { "folke/neodev.nvim",    opts = {} },
 
