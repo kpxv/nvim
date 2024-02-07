@@ -12,5 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(require("plugins"), opts)
+
 require('set')
-require('remap')
+--require('remap-dvorak')
+require('remap-qwerty')

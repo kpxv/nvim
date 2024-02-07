@@ -1,11 +1,11 @@
 return {
-    -- Main colorscheme
     {
-        'AlexvZyl/nordic.nvim',
+        -- Main colorscheme
+        'catppuccin/nvim',
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme nordic]])
+            vim.cmd([[colorscheme catppuccin]])
         end,
     },
 
@@ -14,26 +14,19 @@ return {
         event = "VeryLazy",
         init = function()
             vim.o.timeout = true
-            vim.o.timeoutlen = 300
+            vim.o.timeoutlen = 500
         end,
         opts = {}
     },
 
     -- Other colorschemes
-    { "rose-pine/neovim",                lazy = false },
-    { "catppuccin/nvim",                 name = 'catppuccin', lazy = false },
-    { "ellisonleao/gruvbox.nvim",        lazy = false },
-    -- { 'AlexvZyl/nordic.nvim', lazy = false },
-    { "Shatur/neovim-ayu",               lazy = false },
-    { "rebelot/kanagawa.nvim",           lazy = false },
-    { "olivercederborg/poimandres.nvim", lazy = false },
-    { "water-sucks/darkrose.nvim",       lazy = false },
-    { "tiagovla/tokyodark.nvim",         lazy = false },
-    { "folke/tokyonight.nvim",           lazy = false },
-    { 'projekt0n/github-nvim-theme',     lazy = false },
-    { 'shaunsingh/nord.nvim',            lazy = false },
-    { 'sainnhe/edge',                    lazy = false },
-    { 'olimorris/onedarkpro.nvim',       lazy = false },
+    { "rose-pine/neovim",            lazy = false },
+    -- { "catppuccin/nvim",             name = 'catppuccin', lazy = false },
+    { 'AlexvZyl/nordic.nvim', lazy = false },
+    { "tiagovla/tokyodark.nvim",     lazy = false },
+    { 'projekt0n/github-nvim-theme', lazy = false },
+    { 'shaunsingh/nord.nvim',        lazy = false },
+    { 'rebelot/kanagawa.nvim',       lazy = false },
 
     {
         'm-demare/hlargs.nvim',
@@ -48,13 +41,12 @@ return {
         dependencies = { 'nvim-tree/nvim-web-devicons', opts = true }
     },
 
-    -- Wordcount
     {
-        "https://github.com/skwee357/nvim-prose",
-        config = true,
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+        setup = true
     },
-
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
     {
         "nvim-treesitter/nvim-treesitter",
@@ -64,17 +56,16 @@ return {
         end
     },
 
-    { 'nvim-treesitter/playground' },
-
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-        }
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end,
     },
 
     {
@@ -85,7 +76,8 @@ return {
         dependencies = {
             'roxma/nvim-yarp',
             'roxma/vim-hug-neovim-rpc'
-        }
+        },
+        lazy = true
     },
 
     -- File nav
@@ -99,13 +91,42 @@ return {
 
     { 'mbbill/undotree' },
 
+    -- LSP and related
+    {
+        'williamboman/mason.nvim',
+        lazy = false,
+    },
+    { 'williamboman/mason-lspconfig.nvim', lazy = false },
+    { 'neovim/nvim-lspconfig', lazy = false },
+
+    {
+        'ms-jpq/coq_nvim',
+        branch = 'coq',
+        lazy = false,
+    },
+    {
+        'ms-jpq/coq.artifacts',
+        branch = 'artifacts',
+        lazy = false,
+    },
+    {
+        'ms-jpq/coq.thirdparty',
+        branch = '3p',
+        lazy = false,
+    },
+    {
+        "hedyhli/outline.nvim",
+        lazy = true,
+        cmd = { "Outline", "OutlineOpen" },
+        opts = {
+        },
+    },
+
+    { "folke/neodev.nvim",    opts = {} },
+
     {
         'numtostr/comment.nvim',
         config = true,
-    },
-
-    {
-        'JoosepAlviste/nvim-ts-context-commentstring',
     },
 
     {
@@ -115,89 +136,5 @@ return {
         build = function() vim.fn["mkdp#util#install"]() end,
     },
 
-    {
-        'ms-jpq/coq_nvim',
-        branch = 'coq',
-        -- config = function()
-        --     vim.cmd([[COQnow --shut-up]])
-        -- end,
-    },
 
-    {
-        'lervag/vimtex',
-        lazy = false,
-    },
-
-    {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'neovim/nvim-lspconfig',
-            'hrsh7th/cmp-nvim-lsp',
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip'
-        },
-        lazy = false,
-    },
-
-    {
-        "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
-        build = "make install_jsregexp",
-        lazy = false
-    },
-
-    { 'williamboman/mason.nvim',           lazy = false },
-    { 'williamboman/mason-lspconfig.nvim', lazy = false },
-    { 'neovim/nvim-lspconfig',             lazy = false },
-
-    { 'rmagatti/goto-preview',             config = true },
-
-    {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        },
-    },
-
-    { 'folke/neodev.nvim',             opts = {},    dependencies = { 'neovim/nvim-lspconfig' } },
-
-    {
-        'stevearc/aerial.nvim',
-        opts = {},
-        -- Optional dependencies
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-tree/nvim-web-devicons"
-        },
-    },
-
-    { 'simrat39/symbols-outline.nvim', config = true },
-
-    {
-        'akinsho/toggleterm.nvim',
-        version = '*',
-        config = true
-    },
-
-    { 'tpope/vim-fugitive' },
-
-    -- Debug
-    { 'mfussenegger/nvim-dap' },
-    {
-        'rcarriga/nvim-dap-ui',
-        dependencies = { 'mfussenegger/nvim-dap' },
-        config = function()
-            require('dapui').setup()
-        end
-    },
-    { 'jay-babu/mason-nvim-dap.nvim' },
-
-    { 'theprimeagen/vim-be-good' },
-    { 'alec-gibson/nvim-tetris' },
-    { 'eandrju/cellular-automaton.nvim' }
 }
