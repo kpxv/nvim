@@ -100,6 +100,12 @@ return {
     { 'neovim/nvim-lspconfig', lazy = false },
 
     {
+       'L3MON4D3/LuaSnip',
+        version = "v2.*",
+        run = "make install_jsregexp",
+    },
+
+    {
         'ms-jpq/coq_nvim',
         branch = 'coq',
         lazy = false,
@@ -115,12 +121,6 @@ return {
         cmd = { "Outline", "OutlineOpen" },
         opts = {
         },
-    },
-
-    {
-       'L3MON4D3/LuaSnip',
-        version = "v2.*",
-        run = "make install_jsregexp",
     },
 
     { 'lervag/vimtex', lazy = false },
