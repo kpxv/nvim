@@ -123,6 +123,8 @@ return {
         },
     },
 
+    { 'rmagatti/goto-preview' },
+
     { 'lervag/vimtex', lazy = false },
 
     { "folke/neodev.nvim",    opts = {} },
