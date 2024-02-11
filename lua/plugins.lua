@@ -22,7 +22,7 @@ return {
     -- Other colorschemes
     { "rose-pine/neovim",            lazy = false },
     -- { "catppuccin/nvim",             name = 'catppuccin', lazy = false },
-    { 'AlexvZyl/nordic.nvim', lazy = false },
+    { 'AlexvZyl/nordic.nvim',        lazy = false },
     { "tiagovla/tokyodark.nvim",     lazy = false },
     { 'projekt0n/github-nvim-theme', lazy = false },
     { 'shaunsingh/nord.nvim',        lazy = false },
@@ -97,23 +97,35 @@ return {
         lazy = false,
     },
     { 'williamboman/mason-lspconfig.nvim', lazy = false },
-    { 'neovim/nvim-lspconfig', lazy = false },
+    { 'neovim/nvim-lspconfig',             lazy = false },
 
     {
-       'L3MON4D3/LuaSnip',
+        'L3MON4D3/LuaSnip',
         version = "v2.*",
         run = "make install_jsregexp",
+        lazy = false;
+    },
+
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'neovim/nvim-lspconfig',
+            'hrsh7th/cmp-nvim-lsp',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip'
+        },
+        lazy = false,
     },
 
     {
         'ms-jpq/coq_nvim',
         branch = 'coq',
-        lazy = false,
+        lazy = true,
     },
     {
         'ms-jpq/coq.thirdparty',
         branch = '3p',
-        lazy = false,
+        lazy = true,
     },
     {
         "hedyhli/outline.nvim",
@@ -125,7 +137,7 @@ return {
 
     { 'rmagatti/goto-preview' },
 
-    { 'lervag/vimtex', lazy = false },
+    { 'lervag/vimtex',        lazy = false },
 
     { "folke/neodev.nvim",    opts = {} },
 
