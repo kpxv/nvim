@@ -38,4 +38,16 @@ return {
                 i(0)
             })
     ),
+    require("luasnip").snippet({
+            trig="mk",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                $<>$
+            ]],
+            {
+                i(1)
+            })
+    ),
 }
