@@ -72,5 +72,20 @@ vim.keymap.set("n", "<Left>", [[<cmd>vertical resize -5<cr>]])
 vim.keymap.set("n", "<Down>", [[<cmd>horizontal resize +2<cr>]])
 vim.keymap.set("n", "<Up>", [[<cmd>horizontal resize -2<cr>]])
 
+-- Open config
+map('n', '<leader>rc', '<cmd>vs ~/.config/nvim<cr>')
+
+-- Formatting
+local is_wrapping = false
+local is_line_wrapping = false
+map('n', '<leader>ww', function()
+    is_wrapping = not is_wrapping
+    vim.opt.wrap = is_wrapping
+end)
+map('n', '<leader>wl', function()
+    is_line_wrapping = not is_line_wrapping
+    vim.opt.linebreak = is_line_wrapping
+end)
+
 -- Misc
 map('n', '<leader>vk', function() require('telescope.builtin').colorscheme() end)
