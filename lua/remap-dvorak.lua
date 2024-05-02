@@ -14,42 +14,43 @@ full_map("t", "j")
 full_map("n", "k")
 full_map("s", "l")
 
-map("n", "<C-wh>", "<cmd>wincmd h<CR>")
-map("n", "<C-wt>", "<cmd>wincmd j<CR>")
-map("n", "<C-wn>", "<cmd>wincmd k<CR>")
-map("n", "<C-ws>", "<cmd>wincmd l<CR>")
+map("n", "<C-w><C-h>", "<cmd>wincmd h<CR>")
+map("n", "<C-w><C-t>", "<cmd>wincmd j<CR>")
+map("n", "<C-w><C-n>", "<cmd>wincmd k<CR>")
+map("n", "<C-w><C-s>", "<cmd>wincmd l<CR>")
 
-map('n', '<leader>jj', function() require('telescope.builtin').find_files() end)
-map('n', '<leader>jd', function() require('telescope.builtin').live_grep() end)
-map('n', '<leader>ja', '<cmd>NvimTreeToggle<cr>')
+map("n", "<C-w>h", "<cmd>wincmd h<CR>")
+map("n", "<C-w>t", "<cmd>wincmd j<CR>")
+map("n", "<C-w>n", "<cmd>wincmd k<CR>")
+map("n", "<C-w>s", "<cmd>wincmd l<CR>")
 
 -- File navigation
 map('n', '<leader>hh', function() require('telescope.builtin').find_files() end)
 map('n', '<leader>he', function() require('telescope.builtin').live_grep() end)
 map('n', '<leader>ha', '<cmd>NvimTreeToggle<cr>')
 
-map ("n", "<BS>", "<cmd>b#<cr>")
+map("n", "<BS>", "<cmd>b#<cr>")
 
 map('n', '<leader>a', function() require("harpoon.mark").add_file() end)
 map('n', '<leader>e', function() require("harpoon.ui").toggle_quick_menu() end)
-map('n', '<c-a>', function() require("harpoon.ui").nav_file(1) end)
-map('n', '<c-o>', function() require("harpoon.ui").nav_file(2) end)
-map('n', '<c-e>', function() require("harpoon.ui").nav_file(3) end)
-map('n', '<c-u>', function() require("harpoon.ui").nav_file(4) end)
+map('n', '<c-u>', function() require("harpoon.ui").nav_file(1) end)
+map('n', '<c-e>', function() require("harpoon.ui").nav_file(2) end)
+map('n', '<c-o>', function() require("harpoon.ui").nav_file(3) end)
+map('n', '<c-a>', function() require("harpoon.ui").nav_file(4) end)
 
 map('n', '<leader>r', '<cmd>Outline<cr>')
 
 map('n', '<c-d>', '<c-d>zz')
-map('n', '<c-u>', '<c-u>zz')
-map('n', 'l', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map('n', 'k', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- map('n', '<c-u>', '<c-u>zz')
+map('n', 'n', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map('n', 't', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-map("n", "<leader>f", vim.cmd.UndotreeToggle)
+-- map("n", "<leader>f", vim.cmd.UndotreeToggle)
 
 -- Actions
-map('v', 'K', ":m '>+1<CR>gv=gv")
-map('v', 'L', ":m '>-2<CR>gv=gv")
-map("n", "K", "mzJ`z")
+map('v', 'T', ":m '>+1<CR>gv=gv")
+map('v', 'N', ":m '>-2<CR>gv=gv")
+map("n", "T", "mzJ`z")
 map("x", "<leader>p", "\"dP")
 map("n", "<leader>y", "\"+y")
 map("v", "<leader>y", "\"+y")
@@ -84,6 +85,10 @@ vim.keymap.set("n", "<Right>", [[<cmd>vertical resize +5<cr>]])
 vim.keymap.set("n", "<Left>", [[<cmd>vertical resize -5<cr>]])
 vim.keymap.set("n", "<Down>", [[<cmd>horizontal resize +2<cr>]])
 vim.keymap.set("n", "<Up>", [[<cmd>horizontal resize -2<cr>]])
+
+-- Open config
+map('n', '<leader>rc', '<cmd>vs ~/.config/nvim<cr>')
+
 
 -- Dvorak Fixes
 full_map('j', 't')
