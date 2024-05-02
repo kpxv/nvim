@@ -39,8 +39,6 @@ return {
     }),
 
     require("luasnip").snippet({
-<<<<<<< HEAD
-=======
             trig=";B",
             snippetType="autosnippet",
             regTrig=false,
@@ -80,7 +78,6 @@ return {
     ),
 
     require("luasnip").snippet({
->>>>>>> dvconf
             trig=";deg",
             snippetType="autosnippet",
             regTrig=false,
@@ -93,8 +90,6 @@ return {
                 i(0)
             })
     ),
-<<<<<<< HEAD
-=======
 
     require("luasnip").snippet({
             trig="mk",
@@ -123,5 +118,4 @@ return {
                 i(1)
             })
     ),
->>>>>>> dvconf
 }
