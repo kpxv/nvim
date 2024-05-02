@@ -18,6 +18,19 @@ return {
     ),
 
     require("luasnip").snippet({
+            trig=";A",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                \Alpha<>
+            ]],
+            {
+                i(0)
+            })
+    ),
+
+    require("luasnip").snippet({
         trig=";b",
         snippetType="autosnippet",
         regTrig=false,
@@ -26,6 +39,48 @@ return {
     }),
 
     require("luasnip").snippet({
+<<<<<<< HEAD
+=======
+            trig=";B",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                \Beta<>
+            ]],
+            {
+                i(0)
+            })
+    ),
+
+    require("luasnip").snippet({
+            trig=";d",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                \delta<>
+            ]],
+            {
+                i(0)
+            })
+    ),
+
+    require("luasnip").snippet({
+            trig=";D",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                \Delta<>
+            ]],
+            {
+                i(0)
+            })
+    ),
+
+    require("luasnip").snippet({
+>>>>>>> dvconf
             trig=";deg",
             snippetType="autosnippet",
             regTrig=false,
@@ -38,4 +93,35 @@ return {
                 i(0)
             })
     ),
+<<<<<<< HEAD
+=======
+
+    require("luasnip").snippet({
+            trig="mk",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                $<>$
+            ]],
+            {
+                i(1)
+            })
+    ),
+
+    require("luasnip").snippet({
+            trig=";eq",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                 \[
+                    <>
+                \]
+            ]],
+            {
+                i(1)
+            })
+    ),
+>>>>>>> dvconf
 }

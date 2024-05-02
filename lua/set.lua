@@ -11,6 +11,8 @@ vim.opt.cin = true
 
 vim.opt.cursorline = true
 vim.opt.wrap = false
+vim.opt.termguicolors = true
+vim.opt.colorcolumn = "80"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -19,16 +21,19 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
+vim.opt.smartcase = true
 
 vim.opt.scrolloff = 16
 vim.opt.signcolumn = "no"
-vim.opt.isfname:append("@-@")
+vim.opt.isfname:append("@-@") -- lets vim recognize filenames with "@" in them
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 200
 
-vim.opt.colorcolumn = "0"
+-- disable netrw for nvim tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
+-- vim.cmd [[ let g:coq_settings = { 'auto_start': 'shut-up' } ]]
+vim.cmd [[let g:vimtex_view_method = 'zathura']]
 
 vim.g.mapleader = " "

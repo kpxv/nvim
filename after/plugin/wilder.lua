@@ -36,3 +36,4 @@ wilder.set_option('renderer', wilder.popupmenu_renderer(
         reverse = 0, -- if 1, shows the candidates from bottom to top
     })
 ))
+
