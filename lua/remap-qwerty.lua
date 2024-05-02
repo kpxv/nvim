@@ -35,7 +35,6 @@ map('n', 'k', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 map("n", "<leader>u", vim.cmd.UndotreeToggle)
 
-
 -- Actions
 map('v', 'K', ":m '>+1<CR>gv=gv")
 map('v', 'L', ":m '>-2<CR>gv=gv")

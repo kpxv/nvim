@@ -1,11 +1,11 @@
 return {
     {
         -- Main colorscheme
-        'catppuccin/nvim',
+        'rebelot/kanagawa.nvim',
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme catppuccin]])
+            vim.cmd([[colorscheme kanagawa]])
         end,
     },
 
@@ -21,12 +21,12 @@ return {
 
     -- Other colorschemes
     { "rose-pine/neovim",            lazy = false },
-    -- { "catppuccin/nvim",             name = 'catppuccin', lazy = false },
+    { "catppuccin/nvim",             name = 'catppuccin', lazy = false },
     { 'AlexvZyl/nordic.nvim',        lazy = false },
     { "tiagovla/tokyodark.nvim",     lazy = false },
     { 'projekt0n/github-nvim-theme', lazy = false },
     { 'shaunsingh/nord.nvim',        lazy = false },
-    { 'rebelot/kanagawa.nvim',       lazy = false },
+    -- { 'rebelot/kanagawa.nvim',       lazy = false },
 
     {
         'm-demare/hlargs.nvim',

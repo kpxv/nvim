@@ -84,6 +84,7 @@ return {
             \newdate{date}{<>}{<>}{<>}
             \date{\displaydate{date}}
             \title{<>}
+            \author{<>}
 
             \begin{document}
             \maketitle
@@ -93,7 +94,7 @@ return {
             \end{document}
         ]],
         {
-            i(1), i(2), i(3), i(4), i(0)
+            i(1), i(2), i(3), i(4), i(5), i(0)
         })
     ),
 }
