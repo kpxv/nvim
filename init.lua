@@ -15,4 +15,4 @@ require("lazy").setup(require("plugins"), opts)
 
 require('set')
 require('remap-dvorak')
-require('remap-qwerty')
+-- require('remap-qwerty')

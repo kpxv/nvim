@@ -11,7 +11,7 @@ local rep = require("luasnip.extras").rep
 
 return {
     s({
-        trig = ";snippet",
+        trig = ";lsnip",
         snippetType = "autosnippet",
         regTrig = false
     }, {
@@ -27,7 +27,7 @@ return {
     }),
 
     require("luasnip").snippet({
-            trig = ";fmta",
+            trig = ";snip",
             snippetType = "autosnippet",
             regTrig = false,
         },

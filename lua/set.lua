@@ -34,6 +34,14 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- vim.cmd [[ let g:coq_settings = { 'auto_start': 'shut-up' } ]]
-vim.cmd [[let g:vimtex_view_method = 'zathura']]
+vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_view_forward_search_on_start = 0
+vim.cmd [[let g:vimtex_mappings_disable = {
+    \ 'n': ['tse', 'tsc', 'ts$', 'tsd', 'tsD', 'tsf', 'tsb']
+    \}
+]]
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+
+vim.g.gruvbox_material_foreground = "mix"

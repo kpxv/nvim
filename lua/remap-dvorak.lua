@@ -13,16 +13,21 @@ full_map("h", "h")
 full_map("t", "j")
 full_map("n", "k")
 full_map("s", "l")
+full_map("T", "J")
+full_map("N", "K")
+full_map("S", "L")
 
-map("n", "<C-w><C-h>", "<cmd>wincmd h<CR>")
-map("n", "<C-w><C-t>", "<cmd>wincmd j<CR>")
-map("n", "<C-w><C-n>", "<cmd>wincmd k<CR>")
-map("n", "<C-w><C-s>", "<cmd>wincmd l<CR>")
+map("n", "<C-h>", "<cmd>wincmd h<CR>")
+map("n", "<C-t>", "<cmd>wincmd j<CR>")
+map("n", "<C-n>", "<cmd>wincmd k<CR>")
+map("n", "<C-s>", "<cmd>wincmd l<CR>")
 
-map("n", "<C-w>h", "<cmd>wincmd h<CR>")
-map("n", "<C-w>t", "<cmd>wincmd j<CR>")
-map("n", "<C-w>n", "<cmd>wincmd k<CR>")
-map("n", "<C-w>s", "<cmd>wincmd l<CR>")
+map('n', '<C-w><C-h>', '<C-w><S-h>')
+map('n', '<C-w><C-t>', '<C-w><S-j>')
+map('n', '<C-w><C-n>', '<C-w><S-k>')
+map('n', '<C-w><C-s>', '<C-w><S-l>')
+
+map('n', '<C-q>', '<cmd>vs<cr>')
 
 -- File navigation
 map('n', '<leader>hh', function() require('telescope.builtin').find_files() end)
@@ -45,7 +50,7 @@ map('n', '<c-d>', '<c-d>zz')
 map('n', 'n', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('n', 't', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- map("n", "<leader>f", vim.cmd.UndotreeToggle)
+map("n", "<leader>f", vim.cmd.UndotreeToggle)
 
 -- Actions
 map('v', 'T', ":m '>+1<CR>gv=gv")
@@ -86,11 +91,11 @@ vim.keymap.set("n", "<Left>", [[<cmd>vertical resize -5<cr>]])
 vim.keymap.set("n", "<Down>", [[<cmd>horizontal resize +2<cr>]])
 vim.keymap.set("n", "<Up>", [[<cmd>horizontal resize -2<cr>]])
 
--- Open config
-map('n', '<leader>rc', '<cmd>vs ~/.config/nvim<cr>')
-
 
 -- Dvorak Fixes
 full_map('j', 't')
 full_map('k', 'n')
 full_map('l', 's')
+full_map('J', 'T')
+full_map('K', 'N')
+full_map('L', 'S')

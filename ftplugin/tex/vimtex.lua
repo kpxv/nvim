@@ -1,0 +1,7 @@
+vim.keymap.set('', 'jse', '<plug>(vimtex-env-toggle-star)')
+vim.keymap.set('', 'jsc', '<plug>(vimtex-cmd-toggle-star)')
+vim.keymap.set('', 'jsf', '<plug>(vimtex-cmd-toggle-frac)')
+vim.keymap.set('', 'js$', '<plug>(vimtex-env-toggle-math)')
+vim.keymap.set('', 'jsb', '<plug>(vimtex-cmd-toggle-break)')
+vim.keymap.set('', 'jsd', '<plug>(vimtex-delim-toggle-modifier)')
+vim.keymap.set('', 'jsD', '<plug>(vimtex-delim-toggle-modifier-reverse)')
