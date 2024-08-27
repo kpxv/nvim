@@ -5,6 +5,7 @@ end
 local full_map = function(lhs, rhs, opts)
     map("n", lhs, rhs, opts)
     map("v", lhs, rhs, opts)
+    map("o", lhs, rhs, opts)
 end
 
 -- Dvorak
