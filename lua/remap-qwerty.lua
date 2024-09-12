@@ -9,9 +9,9 @@ local full_map = function(lhs, rhs, opts)
 end
 
 -- File navigation
-map('n', '<leader>hh', function() require('telescope.builtin').find_files() end)
-map('n', '<leader>hd', function() require('telescope.builtin').live_grep() end)
-map('n', '<leader>ha', '<cmd>NvimTreeToggle<cr>')
+map('n', '<leader>jj', function() require('telescope.builtin').find_files() end)
+map('n', '<leader>jd', function() require('telescope.builtin').live_grep() end)
+map('n', '<leader>ja', '<cmd>NvimTreeToggle<cr>')
 
 map("n", "<BS>", "<cmd>b#<cr>")
 
@@ -60,6 +60,12 @@ vim.keymap.set('n', 'gti', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
 vim.keymap.set('n', 'gto', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
 vim.keymap.set('n', 'gtr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
 vim.keymap.set('n', 'gts', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+
+-- DAP
+map("n", "<localleader>l", function() require('dap').step_into() end)
+map("n", "<localleader>o", function() require('dap').step_over() end)
+map("n", "<localleader>t", function() require('dap').toggle_breakpoint() end)
+map("n", "<localleader>d", function() require('dapui').toggle() end)
 
 -- Window resizing
 vim.keymap.set("n", "<Right>", [[<cmd>vertical resize +5<cr>]])

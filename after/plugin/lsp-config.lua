@@ -1,6 +1,9 @@
 local mason = require("mason")
+local mdap = require("mason-nvim-dap")
 local mlsp = require("mason-lspconfig")
 local lsp = require "lspconfig"
+local dap = require("dap")
+local dapui = require("dapui")
 
 local coq = require "coq"
 local cmp = require "cmp"
@@ -61,6 +64,11 @@ cmp.setup({
 })
 
 mason.setup()
+mdap.setup({
+    ensure_installed = { "python", "cppdebug" },
+    automatic_installation = true,
+    handlers = {}
+})
 mlsp.setup()
 mlsp.setup_handlers {
     function(servername)
@@ -68,5 +76,19 @@ mlsp.setup_handlers {
         lsp[servername].setup({ capabilities = cmp_capabilities })
     end
 }
+dapui.setup()
+
+--[[ dap.configurations.python = {
+    {
+        type = 'debugpy',
+        request = 'launch',
+        name = "Launch file",
+        program = "${file}",
+        pythonPath = function()
+            return '/usr/local/bin/python3'
+        end,
+    },
+} ]]
+
 
 -- vim.cmd[[COQnow --shut-up]]
