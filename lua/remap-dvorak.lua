@@ -33,7 +33,7 @@ map('n', '<C-q>', '<cmd>vs<cr>')
 -- File navigation
 map('n', '<leader>hh', function() require('telescope.builtin').find_files() end)
 map('n', '<leader>he', function() require('telescope.builtin').live_grep() end)
-map('n', '<leader>ha', '<cmd>NvimTreeToggle<cr>')
+map('n', '<leader>ha', '<cmd>Ex<cr>')
 
 map("n", "<BS>", "<cmd>b#<cr>")
 
@@ -58,8 +58,7 @@ map('v', 'T', ":m '>+1<CR>gv=gv")
 map('v', 'N', ":m '>-2<CR>gv=gv")
 map("n", "T", "mzJ`z")
 map("x", "<leader>p", "\"dP")
-map("n", "<leader>y", "\"+y")
-map("v", "<leader>y", "\"+y")
+map("n", "<leader>y", "\"+y") map("v", "<leader>y", "\"+y")
 map("n", "<leader>Y", "\"+Y")
 map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 map("n", "<CR>", "<cmd>nohls<CR>")
@@ -91,6 +90,18 @@ vim.keymap.set("n", "<Right>", [[<cmd>vertical resize +5<cr>]])
 vim.keymap.set("n", "<Left>", [[<cmd>vertical resize -5<cr>]])
 vim.keymap.set("n", "<Down>", [[<cmd>horizontal resize +2<cr>]])
 vim.keymap.set("n", "<Up>", [[<cmd>horizontal resize -2<cr>]])
+
+-- Formatting
+local is_wrapping = false
+local is_line_wrapping = false
+map('n', '<leader>ww', function()
+    is_wrapping = not is_wrapping
+    vim.opt.wrap = is_wrapping
+end)
+map('n', '<leader>wl', function()
+    is_line_wrapping = not is_line_wrapping
+    vim.opt.linebreak = is_line_wrapping
+end)
 
 
 -- Dvorak Fixes

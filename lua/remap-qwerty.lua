@@ -11,7 +11,7 @@ end
 -- File navigation
 map('n', '<leader>hh', function() require('telescope.builtin').find_files() end)
 map('n', '<leader>hd', function() require('telescope.builtin').live_grep() end)
-map('n', '<leader>ha', '<cmd>NvimTreeToggle<cr>')
+map('n', '<leader>ha', '<cmd>Ex<cr>')
 
 map("n", "<BS>", "<cmd>b#<cr>")
 

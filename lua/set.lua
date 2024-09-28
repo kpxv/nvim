@@ -29,11 +29,6 @@ vim.opt.isfname:append("@-@") -- lets vim recognize filenames with "@" in them
 
 vim.opt.updatetime = 200
 
--- disable netrw for nvim tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- vim.cmd [[ let g:coq_settings = { 'auto_start': 'shut-up' } ]]
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_view_forward_search_on_start = 0
 vim.cmd [[let g:vimtex_mappings_disable = {

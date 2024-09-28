@@ -2,7 +2,6 @@ local mason = require("mason")
 local mlsp = require("mason-lspconfig")
 local lsp = require "lspconfig"
 
-local coq = require "coq"
 local cmp = require "cmp"
 
 local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -64,9 +63,6 @@ mason.setup()
 mlsp.setup()
 mlsp.setup_handlers {
     function(servername)
-        -- lsp[servername].setup(coq.lsp_ensure_capabilities())
         lsp[servername].setup({ capabilities = cmp_capabilities })
     end
 }
-
--- vim.cmd[[COQnow --shut-up]]
