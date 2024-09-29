@@ -5,7 +5,7 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme kanagawa]])
+            vim.cmd.colorscheme('kanagawa')
         end,
     },
 
@@ -24,37 +24,22 @@ return {
     { "catppuccin/nvim",                  name = 'catppuccin', lazy = false },
     { 'AlexvZyl/nordic.nvim',             lazy = false },
     { "tiagovla/tokyodark.nvim",          lazy = false },
-    -- { 'projekt0n/github-nvim-theme',      lazy = false },
     { "folke/tokyonight.nvim",            lazy = false },
-    { 'shaunsingh/nord.nvim',             lazy = false },
     -- { 'rebelot/kanagawa.nvim',            lazy = false },
-    { 'sho-87/kanagawa-paper.nvim',       lazy = false },
-    { 'sainnhe/gruvbox-material',         lazy = false },
     { 'nyoom-engineering/oxocarbon.nvim', lazy = false },
-    { 'sainnhe/everforest',               lazy = false },
-    { 'FrenzyExists/aquarium-vim',        lazy = false },
     { 'lewpoly/sherbet.nvim',             lazy = false },
     { 'dasupradyumna/midnight.nvim',      lazy = false },
     { 'alexmozaidze/palenight.nvim',      lazy = false },
 
     {
         'm-demare/hlargs.nvim',
-        config = function()
-            require('hlargs').setup()
-        end
+        opts = {}
     },
-
-    --[[ {
-        "nvim-lualine/lualine.nvim",
-        lazy = false,
-        dependencies = { 'nvim-tree/nvim-web-devicons', opts = true }
-    }, ]]
 
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {},
-        setup = true
     },
 
     {
@@ -62,27 +47,9 @@ return {
         lazy = false,
     },
 
-    --[[ {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            require("nvim-tree").setup {}
-        end,
-    }, ]]
-
     {
         'gelguy/wilder.nvim',
-        config = function()
-            require('wilder').setup({ modes = { ':', '/', '?' } })
-        end,
-        dependencies = {
-            'roxma/nvim-yarp',
-            'roxma/vim-hug-neovim-rpc'
-        },
+        opts = { modes = { ':', '/', '?' } },
         lazy = true
     },
 
@@ -110,7 +77,8 @@ return {
         'L3MON4D3/LuaSnip',
         version = "v2.*",
         run = "make install_jsregexp",
-        lazy = false,
+        lazy = true,
+
     },
 
     {
@@ -147,22 +115,11 @@ return {
     { 'jay-babu/mason-nvim-dap.nvim' },
     { "rcarriga/nvim-dap-ui",        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
-    --[[ {
-        'ms-jpq/coq_nvim',
-        branch = 'coq',
-        lazy = true,
-    },
-    {
-        'ms-jpq/coq.thirdparty',
-        branch = '3p',
-        lazy = true,
-    }, ]]
     {
         "hedyhli/outline.nvim",
         lazy = true,
         cmd = { "Outline", "OutlineOpen" },
-        opts = {
-        },
+        opts = {},
     },
 
     { 'rmagatti/goto-preview' },
@@ -174,7 +131,7 @@ return {
 
     {
         'numtostr/comment.nvim',
-        config = true,
+        opts = {}
     },
 
     {

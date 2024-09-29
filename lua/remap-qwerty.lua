@@ -2,12 +2,6 @@ local map = function(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-local full_map = function(lhs, rhs, opts)
-    map("n", lhs, rhs, opts)
-    map("v", lhs, rhs, opts)
-    map("o", lhs, rhs, opts)
-end
-
 -- File navigation
 map('n', '<leader>jj', function() require('telescope.builtin').find_files() end)
 map('n', '<leader>jd', function() require('telescope.builtin').live_grep() end)
@@ -70,8 +64,8 @@ map("n", "<localleader>d", function() require('dapui').toggle() end)
 -- Window resizing
 vim.keymap.set("n", "<Right>", [[<cmd>vertical resize +5<cr>]])
 vim.keymap.set("n", "<Left>", [[<cmd>vertical resize -5<cr>]])
-vim.keymap.set("n", "<Down>", [[<cmd>horizontal resize +2<cr>]])
-vim.keymap.set("n", "<Up>", [[<cmd>horizontal resize -2<cr>]])
+vim.keymap.set("n", "<Down>", function() vim.cmd.resize('+2') end)
+vim.keymap.set("n", "<Up>", function() vim.cmd.resize('-2') end)
 
 -- Open config
 map('n', '<leader>rc', '<cmd>vs ~/.config/nvim<cr>')

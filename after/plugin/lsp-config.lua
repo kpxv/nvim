@@ -59,17 +59,18 @@ cmp.setup({
 })
 
 mason.setup()
-mdap.setup({
-    ensure_installed = { "python", "cppdebug" },
-    automatic_installation = true,
-    handlers = {}
-})
 mlsp.setup()
 mlsp.setup_handlers {
     function(servername)
         lsp[servername].setup({ capabilities = cmp_capabilities })
     end
 }
+vim.diagnostic.config({ signs = false })
+mdap.setup({
+    ensure_installed = { "python", "cppdebug" },
+    automatic_installation = true,
+    handlers = {}
+})
 dapui.setup()
 
 --[[ dap.configurations.python = {
