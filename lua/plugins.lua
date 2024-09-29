@@ -24,7 +24,8 @@ return {
     { "catppuccin/nvim",                  name = 'catppuccin', lazy = false },
     { 'AlexvZyl/nordic.nvim',             lazy = false },
     { "tiagovla/tokyodark.nvim",          lazy = false },
-    { 'projekt0n/github-nvim-theme',      lazy = false },
+    -- { 'projekt0n/github-nvim-theme',      lazy = false },
+    { "folke/tokyonight.nvim",            lazy = false },
     { 'shaunsingh/nord.nvim',             lazy = false },
     -- { 'rebelot/kanagawa.nvim',            lazy = false },
     { 'sho-87/kanagawa-paper.nvim',       lazy = false },
@@ -43,11 +44,11 @@ return {
         end
     },
 
-    {
+    --[[ {
         "nvim-lualine/lualine.nvim",
         lazy = false,
         dependencies = { 'nvim-tree/nvim-web-devicons', opts = true }
-    },
+    }, ]]
 
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -59,12 +60,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
-        config = function()
-            vim.cmd([[TSUpdate]])
-        end
     },
 
-    {
+    --[[ {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         lazy = false,
@@ -74,7 +72,7 @@ return {
         config = function()
             require("nvim-tree").setup {}
         end,
-    },
+    }, ]]
 
     {
         'gelguy/wilder.nvim',
@@ -149,7 +147,7 @@ return {
     { 'jay-babu/mason-nvim-dap.nvim' },
     { "rcarriga/nvim-dap-ui",        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
-    {
+    --[[ {
         'ms-jpq/coq_nvim',
         branch = 'coq',
         lazy = true,
@@ -158,7 +156,7 @@ return {
         'ms-jpq/coq.thirdparty',
         branch = '3p',
         lazy = true,
-    },
+    }, ]]
     {
         "hedyhli/outline.nvim",
         lazy = true,

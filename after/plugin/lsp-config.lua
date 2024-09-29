@@ -2,14 +2,11 @@ local mason = require("mason")
 local mdap = require("mason-nvim-dap")
 local mlsp = require("mason-lspconfig")
 local lsp = require "lspconfig"
-local dap = require("dap")
+-- local dap = require("dap")
 local dapui = require("dapui")
 
-local coq = require "coq"
 local cmp = require "cmp"
-
 local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 local luasnip = require('luasnip')
 
 cmp.setup({
@@ -26,8 +23,6 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-                -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-                -- that way you will only jump inside the snippet region
             elseif luasnip.expand_or_locally_jumpable() then
                 luasnip.expand_or_jump()
             else
@@ -72,7 +67,6 @@ mdap.setup({
 mlsp.setup()
 mlsp.setup_handlers {
     function(servername)
-        -- lsp[servername].setup(coq.lsp_ensure_capabilities())
         lsp[servername].setup({ capabilities = cmp_capabilities })
     end
 }
@@ -89,6 +83,3 @@ dapui.setup()
         end,
     },
 } ]]
-
-
--- vim.cmd[[COQnow --shut-up]]
