@@ -35,7 +35,7 @@ return {
     {
         'olimorris/onedarkpro.nvim',
         lazy = false,
-        config = function() require('onedarkpro').setup({
+        opts = {
             colors = {
                 cursorline = "#323843",
             },
@@ -43,16 +43,14 @@ return {
                 cursorline = true,
                 transparency = false,
                 terminal_colors = true,
-            }
-        }) end,
+            },
+        },
     },
 
     {
         'm-demare/hlargs.nvim',
         event = "VeryLazy",
-        config = function()
-            require('hlargs').setup()
-        end
+        opts = {},
     },
 
     {
@@ -71,13 +69,7 @@ return {
     {
         'gelguy/wilder.nvim',
         event = "VeryLazy",
-        config = function()
-            require('wilder').setup({ modes = { ':', '/', '?' } })
-        end,
-        dependencies = {
-            'roxma/nvim-yarp',
-            'roxma/vim-hug-neovim-rpc'
-        },
+        opts = { modes = { ':', '/', '?', } },
     },
 
     -- File nav
@@ -141,9 +133,12 @@ return {
         lazy = false,
     },
 
+    { 'mfussenegger/nvim-dap' },
+    { 'jay-babu/mason-nvim-dap.nvim' },
+    { "rcarriga/nvim-dap-ui",        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+
     {
         "hedyhli/outline.nvim",
-        lazy = true,
         cmd = { "Outline", "OutlineOpen" },
         opts = {},
     },
@@ -157,7 +152,7 @@ return {
 
     {
         'numtostr/comment.nvim',
-        config = true,
+        opts = {},
     },
 
     {

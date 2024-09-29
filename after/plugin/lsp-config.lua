@@ -1,6 +1,8 @@
 local mason = require("mason")
+local mdap = require("mason-nvim-dap")
 local mlsp = require("mason-lspconfig")
-local lsp = require "lspconfig"
+local lsp = require("lspconfig")
+local dapui = require("dapui")
 
 local cmp = require "cmp"
 
@@ -66,3 +68,10 @@ mlsp.setup_handlers {
         lsp[servername].setup({ capabilities = cmp_capabilities })
     end
 }
+vim.diagnostic.config({ signs = false, })
+mdap.setup({
+    ensure_installed = { "python", "cppdebug" },
+    automatic_installation = true,
+    handlers = {}
+})
+dapui.setup()

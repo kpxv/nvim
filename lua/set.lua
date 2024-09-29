@@ -24,7 +24,7 @@ vim.opt.incsearch = true
 vim.opt.smartcase = true
 
 vim.opt.scrolloff = 16
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "auto"
 vim.opt.isfname:append("@-@") -- lets vim recognize filenames with "@" in them
 
 vim.opt.updatetime = 200
