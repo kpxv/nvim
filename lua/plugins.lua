@@ -85,7 +85,6 @@ return {
     {
         'mbbill/undotree',
         event = "VeryLazy",
-        lazy = true
     },
 
     -- LSP and related
@@ -114,7 +113,7 @@ return {
             },
         },
     },
-    { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+    { "Bilal2453/luvit-meta",        lazy = true }, -- optional `vim.uv` typings
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
@@ -135,7 +134,18 @@ return {
 
     { 'mfussenegger/nvim-dap' },
     { 'jay-babu/mason-nvim-dap.nvim' },
-    { "rcarriga/nvim-dap-ui",        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+    {
+        'theHamsta/nvim-dap-virtual-text',
+        dependencies = { "mfussenegger/nvim-dap" },
+        opts = {},
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio"
+        }
+    },
 
     {
         "hedyhli/outline.nvim",
@@ -163,5 +173,5 @@ return {
     },
 
     -- Git
-    { 'tpope/vim-fugitive', event = "VeryLazy" },
+    { 'tpope/vim-fugitive',   event = "VeryLazy" },
 }
