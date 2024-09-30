@@ -73,14 +73,3 @@ mdap.setup({
 })
 dapui.setup()
 
---[[ dap.configurations.python = {
-    {
-        type = 'debugpy',
-        request = 'launch',
-        name = "Launch file",
-        program = "${file}",
-        pythonPath = function()
-            return '/usr/local/bin/python3'
-        end,
-    },
-} ]]
