@@ -39,6 +39,23 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s" }),
+
+
+        ["<C-n>"] = cmp.mapping(function(fallback)
+            if luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+
+        ["<S-C-n>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
     }),
     snippet = {
         expand = function(args)

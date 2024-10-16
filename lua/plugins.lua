@@ -19,6 +19,7 @@ return {
         opts = {}
     },
 
+
     -- Other colorschemes
     { "rose-pine/neovim",                 lazy = false },
     { "catppuccin/nvim",                  name = 'catppuccin', lazy = false },
