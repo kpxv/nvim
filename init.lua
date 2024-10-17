@@ -14,8 +14,4 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(require("plugins"), opts)
 
 require('set')
-if vim.loop.os_uname().sysname == 'Linux' then
-    require('remap-dvorak')
-else
-    require('remap-qwerty')
-end
+require('remap-qwerty')
