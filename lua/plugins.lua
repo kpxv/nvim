@@ -22,16 +22,16 @@ return {
     -- Other colorschemes
     { "rose-pine/neovim",                 lazy = false },
     { "catppuccin/nvim",                  name = 'catppuccin', lazy = false },
-    { 'AlexvZyl/nordic.nvim',             lazy = false },
+    -- { 'AlexvZyl/nordic.nvim',             lazy = false },
     { "tiagovla/tokyodark.nvim",          lazy = false },
-    { "folke/tokyonight.nvim",            lazy = false },
+    -- { "folke/tokyonight.nvim",            lazy = false },
     -- { 'rebelot/kanagawa.nvim',            lazy = false },
-    { 'nyoom-engineering/oxocarbon.nvim', lazy = false },
-    { 'lewpoly/sherbet.nvim',             lazy = false },
-    { 'alexmozaidze/palenight.nvim',      lazy = false },
-    { 'rmehri01/onenord.nvim',            lazy = false },
+    -- { 'nyoom-engineering/oxocarbon.nvim', lazy = false },
+    -- { 'lewpoly/sherbet.nvim',             lazy = false },
+    -- { 'alexmozaidze/palenight.nvim',      lazy = false },
+    -- { 'rmehri01/onenord.nvim',            lazy = false },
     { 'Shatur/neovim-ayu',                lazy = false },
-    { 'sainnhe/sonokai',                  lazy = false },
+    -- { 'sainnhe/sonokai',                  lazy = false },
     {
         'olimorris/onedarkpro.nvim',
         lazy = false,
@@ -147,11 +147,11 @@ return {
         }
     },
 
-    {
-        "hedyhli/outline.nvim",
-        cmd = { "Outline", "OutlineOpen" },
-        opts = {},
-    },
+    -- {
+    --     "hedyhli/outline.nvim",
+    --     cmd = { "Outline", "OutlineOpen" },
+    --     opts = {},
+    -- },
 
     { 'rmagatti/goto-preview' },
 
@@ -173,5 +173,5 @@ return {
     },
 
     -- Git
-    { 'tpope/vim-fugitive',   event = "VeryLazy" },
+    -- { 'tpope/vim-fugitive',   event = "VeryLazy" },
 }

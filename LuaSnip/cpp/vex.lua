@@ -10,33 +10,63 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-    s({
-        trig="omt",
-        dscr="create motor object",
-        regTrig=false,
-        snippetType="autosnippet",
-    },
-    {
-        t("vex::motor "),
-    },
-    {
-    }),
+    require("luasnip").snippet({
+            trig="cmt",
+            snippetType="autosnippet",
+            regTrig=false,
+        },
+        fmta( [[
+                vex::motor <>(vex::PORT<>, vex::gearSetting::ratio<>_1, <>);
+            ]],
+            {
+                i(1),
+                i(2),
+                i(3),
+                i(4),
+            })
+    ),
 
-    s({
-        trig="cmt",
-        dscr="construct motor object",
-        regTrig=false,
-        snippetType="autosnippet",
-    },
-    {
-        t("vex::motor(PORT"),
-        i(1),
-        t(", "),
-        i(2),
-        t(", "),
-        i(3),
-        t(");")
-    },
-    {
-    }),
+    require("luasnip").snippet({
+            trig="mgr",
+            snippetType="snippet",
+            regTrig=false,
+        },
+        fmta( [[
+                vex::motor_group <>(<>);
+            ]],
+            {
+                i(1),
+                i(2),
+            })
+    ),
+
+    require("luasnip").snippet({
+            trig=";robot_cfg",
+            snippetType="snippet",
+            regTrig=false,
+        },
+        fmta( [[
+                robot_specs_t robot_cfg = {
+                    .robot_radius = <>,
+                    .odom_wheel_diam = <>,
+                    .odom_gear_ratio = <>,
+                    .dist_between_wheels = <>,
+
+                    .drive_correction_cutoff = <>,
+                    .drive_feedback = <>,
+                    .turn_feedback = <>,
+                    .correction_pid = <>,
+                };
+            ]],
+            {
+                i(1),
+                i(2),
+                i(3),
+                i(4),
+                i(5),
+                i(6),
+                i(7),
+                i(8),
+            })
+    ),
 }

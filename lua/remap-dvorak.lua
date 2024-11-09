@@ -28,7 +28,7 @@ map('n', '<c-e>', function() require("harpoon.ui").nav_file(2) end)
 map('n', '<c-o>', function() require("harpoon.ui").nav_file(3) end)
 map('n', '<c-a>', function() require("harpoon.ui").nav_file(4) end)
 
-map('n', '<leader>r', '<cmd>Outline<cr>')
+-- map('n', '<leader>r', '<cmd>Outline<cr>')
 
 map('n', '<c-d>', '<c-d>zz')
 -- map('n', '<c-u>', '<c-u>zz')
