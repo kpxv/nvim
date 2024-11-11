@@ -27,6 +27,9 @@ vim.opt.scrolloff = 16
 vim.opt.signcolumn = "auto"
 vim.opt.isfname:append("@-@") -- lets vim recognize filenames with "@" in them
 
+vim.opt.spr = true
+vim.opt.sb = true
+
 vim.opt.updatetime = 200
 
 vim.g.vimtex_view_method = 'zathura'
@@ -38,5 +41,3 @@ vim.cmd [[let g:vimtex_mappings_disable = {
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
-
-vim.g.gruvbox_material_foreground = "mix"

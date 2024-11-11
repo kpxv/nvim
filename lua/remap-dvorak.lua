@@ -13,8 +13,10 @@ map('n', '<C-w><C-k>', '<C-w><S-k>')
 map('n', '<C-w><C-l>', '<C-w><S-l>')
 
 map('n', '<C-q>', '<cmd>vs<cr>')
+map('n', '<C-;>', '<cmd>spl<cr>')
+map('n', '<C-CR>', '<cmd>vs<cr><cmd>e term://zsh<cr>a')
+map('t', '<ESC>', '<C-\\><C-n>')
 
--- File navigation
 map('n', '<leader>hh', function() require('telescope.builtin').find_files() end)
 map('n', '<leader>he', function() require('telescope.builtin').live_grep() end)
 map('n', '<leader>ha', '<cmd>Ex<cr>')
@@ -51,7 +53,7 @@ map("n", "<CR>", "<cmd>nohls<CR>")
 -- LSP Junk
 map("n", "<leader>f", function() vim.lsp.buf.format({ 4, true, true, false, true }) end)
 
--- Misc
+-- Colorscheme
 map('n', '<leader>kt', function() require('telescope.builtin').colorscheme() end)
 
 vim.keymap.set('n', 'gd', function() require('goto-preview').goto_preview_definition() end)
