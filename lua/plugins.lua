@@ -97,15 +97,39 @@ return {
 
 	-- DAP
 	{
-		"mfussenegger/nvim-dap",
-		config = function()
-			vim.fn.sign_define("DapBreakpoint", {
-				text = "●",
-				texthl = "CursorLineNr",
-				linehl = "",
-				numhl = "",
-			})
-		end
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			{
+				"mfussenegger/nvim-dap",
+				dependencies = {
+					{ "williamboman/mason.nvim", opts = {} },
+					{
+						"jay-babu/mason-nvim-dap.nvim",
+						opts = {
+							ensure_installed = {
+								"cppdbg",
+								"python",
+								"javadbg",
+							},
+							handlers = { function(config)
+								require("mason-nvim-dap").default_setup(config)
+							end },
+						}
+					},
+				},
+				config = function()
+					vim.fn.sign_define("DapBreakpoint", {
+						text = "●",
+						texthl = "CursorLineNr",
+						linehl = "",
+						numhl = "",
+					})
+				end
+			},
+			"nvim-neotest/nvim-nio",
+		},
+		opts = {},
+		ft = { "java", "py", "c", "cpp" },
 	},
 
 	-- View binary files
