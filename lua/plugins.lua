@@ -1,191 +1,117 @@
 return {
-    {
-        -- Main colorscheme
-        'rebelot/kanagawa.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme kanagawa]])
-        end,
-    },
+	-- Colorscheme
+	{
+		"rebelot/kanagawa.nvim",
+		config = function() vim.cmd.colorscheme("kanagawa") end
+	},
 
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 500
-        end,
-        opts = {}
-    },
+	-- File navigation
+	{
+		"theprimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function() require("harpoon"):setup() end
+	},
 
-    -- Other colorschemes
-    { "rose-pine/neovim",                 lazy = false },
-    { "catppuccin/nvim",                  name = 'catppuccin', lazy = false },
-    { 'AlexvZyl/nordic.nvim',             lazy = false },
-    { "tiagovla/tokyodark.nvim",          lazy = false },
-    { 'projekt0n/github-nvim-theme',      lazy = false },
-    { 'shaunsingh/nord.nvim',             lazy = false },
-    -- { 'rebelot/kanagawa.nvim',            lazy = false },
-    { 'sho-87/kanagawa-paper.nvim',       lazy = false },
-    { 'sainnhe/gruvbox-material',         lazy = false },
-    { 'nyoom-engineering/oxocarbon.nvim', lazy = false },
-    { 'sainnhe/everforest',               lazy = false },
-    { 'FrenzyExists/aquarium-vim',        lazy = false },
-    { 'lewpoly/sherbet.nvim',             lazy = false },
-    { 'dasupradyumna/midnight.nvim',      lazy = false },
-    { 'alexmozaidze/palenight.nvim',      lazy = false },
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = { keymaps = { "none" } }
+	},
 
-    {
-        'm-demare/hlargs.nvim',
-        config = function()
-            require('hlargs').setup()
-        end
-    },
+	-- Nicer help menu
+	{ "anuvyklack/help-vsplit.nvim",    opts = {} },
 
-    {
-        "nvim-lualine/lualine.nvim",
-        lazy = false,
-        dependencies = { 'nvim-tree/nvim-web-devicons', opts = true }
-    },
+	-- Better syntax highlighting
+	{ "nvim-treesitter/nvim-treesitter" },
 
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {},
-        setup = true
-    },
+	-- LSP stuff
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "williamboman/mason.nvim", opts = {} },
+			{
+				"williamboman/mason-lspconfig",
+				opts = {
+					ensure_installed = {
+						"pyright",
+						"ruff",
+						"clangd",
+						"lua_ls",
+						"jdtls",
+					}
+				}
+			},
+		},
+		config = function()
+			local lspconfig = require("lspconfig")
+			lspconfig.pyright.setup({})
+			lspconfig.ruff.setup({})
+			lspconfig.clangd.setup({})
+			lspconfig.lua_ls.setup({})
+			lspconfig.jdtls.setup({})
+		end,
+	},
 
-    {
-        "nvim-treesitter/nvim-treesitter",
-        lazy = false,
-        config = function()
-            vim.cmd([[TSUpdate]])
-        end
-    },
+	-- Completion
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = { {
+				path = "${3rd}/luv/library",
+				words = { "vim%.uv" }
+			} },
+		},
+	},
 
-    {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            require("nvim-tree").setup {}
-        end,
-    },
+	{
+		'saghen/blink.cmp',
+		dependencies = 'rafamadriz/friendly-snippets',
+		version = '*',
+		opts = {
+			completion = { list = { selection = { preselect = false, auto_insert = true } } },
+			keymap = {
+				preset = 'none',
+				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+				["<C-y>"] = { "accept" },
+			},
+			appearance = {
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = 'mono'
+			},
+			sources = {
+				default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 100,
+					},
+				},
+			},
+		},
+		opts_extend = { "sources.default" }
+	},
 
-    {
-        'gelguy/wilder.nvim',
-        config = function()
-            require('wilder').setup({ modes = { ':', '/', '?' } })
-        end,
-        dependencies = {
-            'roxma/nvim-yarp',
-            'roxma/vim-hug-neovim-rpc'
-        },
-        lazy = true
-    },
+	-- DAP
+	{
+		"mfussenegger/nvim-dap",
+		config = function()
+			vim.fn.sign_define("DapBreakpoint", {
+				text = "●",
+				texthl = "CursorLineNr",
+				linehl = "",
+				numhl = "",
+			})
+		end
+	},
 
-    -- File nav
-    { 'theprimeagen/harpoon' },
-
-    {
-        'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    },
-
-    { 'mbbill/undotree' },
-
-    -- LSP and related
-    {
-        'williamboman/mason.nvim',
-        lazy = false,
-    },
-    { 'williamboman/mason-lspconfig.nvim', lazy = false },
-    { 'neovim/nvim-lspconfig',             lazy = false },
-
-
-    {
-        'L3MON4D3/LuaSnip',
-        version = "v2.*",
-        run = "make install_jsregexp",
-        lazy = false,
-    },
-
-    {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-        opts = {
-            library = {
-                -- See the configuration section for more details
-                -- Load luvit types when the `vim.uv` word is found
-                { path = "luvit-meta/library", words = { "vim%.uv" } },
-            },
-        },
-    },
-    { "Bilal2453/luvit-meta",        lazy = true }, -- optional `vim.uv` typings
-    {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'neovim/nvim-lspconfig',
-            'hrsh7th/cmp-nvim-lsp',
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip'
-        },
-        opts = function(_, opts)
-            opts.sources = opts.sources or {}
-            table.insert(opts.sources, {
-                name = "lazydev",
-                group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-            })
-        end,
-        lazy = false,
-    },
-
-    { 'mfussenegger/nvim-dap' },
-    { 'jay-babu/mason-nvim-dap.nvim' },
-    { "rcarriga/nvim-dap-ui",        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
-
-    {
-        'ms-jpq/coq_nvim',
-        branch = 'coq',
-        lazy = true,
-    },
-    {
-        'ms-jpq/coq.thirdparty',
-        branch = '3p',
-        lazy = true,
-    },
-    {
-        "hedyhli/outline.nvim",
-        lazy = true,
-        cmd = { "Outline", "OutlineOpen" },
-        opts = {
-        },
-    },
-
-    { 'rmagatti/goto-preview' },
-
-    {
-        'lervag/vimtex',
-        lazy = false,
-    },
-
-    {
-        'numtostr/comment.nvim',
-        config = true,
-    },
-
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
-    },
-
-    -- Git
-    { 'tpope/vim-fugitive' },
+	-- View binary files
+	{
+		"ArcaneSpecs/HexEditor.nvim",
+		opts = {},
+		ft = { "bin", "elf", "exe" },
+	},
 }
