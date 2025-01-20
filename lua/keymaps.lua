@@ -1,3 +1,6 @@
+vim.keymap.set("n", "<Space>", "<Nop>")
+vim.keymap.set("n", "-", "<Nop>")
+
 vim.keymap.set("n", "<BS>", "<C-^>")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -22,29 +25,28 @@ vim.keymap.set("n", "<Down>", [[<cmd> horizontal resize -2<cr>]])
 
 vim.keymap.set("n", "<leader>rc", "<cmd>vs ~/.config/nvim<cr>")
 
+
 -- Harpoon
 
-local harpoon = require("harpoon")
+vim.keymap.set("n", "<leader>a", function() require("harpoon"):list():add() end)
+vim.keymap.set("n", "<C-e>", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end)
 
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<C-h>", function() require("harpoon"):list():select(1) end)
+vim.keymap.set("n", "<C-t>", function() require("harpoon"):list():select(2) end)
+vim.keymap.set("n", "<C-n>", function() require("harpoon"):list():select(3) end)
+vim.keymap.set("n", "<C-s>", function() require("harpoon"):list():select(4) end)
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<C-S-P>", function() require("harpoon"):list():prev() end)
+vim.keymap.set("n", "<C-S-N>", function() require("harpoon"):list():next() end)
+
 
 -- fzf-lua
 
-local fzf_lua = require("fzf-lua")
+vim.keymap.set("n", "<leader>hh", function() require("fzf-lua").files() end)
+vim.keymap.set("n", "<leader>he", function() require("fzf-lua").live_grep() end)
+vim.keymap.set("n", "<leader>kt", function() require("fzf-lua").colorschemes() end)
 
-vim.keymap.set("n", "<leader>hh", function() fzf_lua.files() end)
-vim.keymap.set("n", "<leader>he", function() fzf_lua.live_grep() end)
-vim.keymap.set("n", "<leader>kt", function() fzf_lua.colorschemes() end)
 
 -- LSP
 

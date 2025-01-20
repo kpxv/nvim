@@ -5,22 +5,23 @@ return {
 		config = function() vim.cmd.colorscheme("kanagawa") end
 	},
 
-	-- File navigation
 	{
 		"theprimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function() require("harpoon"):setup() end
+		config = function() require("harpoon"):setup() end,
+		lazy = true,
 	},
 
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = { keymaps = { "none" } }
+		opts = { keymaps = { "none" } },
+		lazy = true,
 	},
 
 	-- Nicer help menu
-	{ "anuvyklack/help-vsplit.nvim",    opts = {} },
+	{ "anuvyklack/help-vsplit.nvim",    opts = {}, },
 
 	-- Better syntax highlighting
 	{ "nvim-treesitter/nvim-treesitter" },
@@ -67,7 +68,10 @@ return {
 
 	{
 		'saghen/blink.cmp',
-		dependencies = 'rafamadriz/friendly-snippets',
+		dependencies = {
+			'rafamadriz/friendly-snippets',
+			"folke/lazydev.nvim",
+		},
 		version = '*',
 		opts = {
 			completion = { list = { selection = { preselect = false, auto_insert = true } } },
@@ -129,13 +133,15 @@ return {
 			"nvim-neotest/nvim-nio",
 		},
 		opts = {},
-		ft = { "java", "py", "c", "cpp" },
+		lazy = true,
 	},
+
+	-- Java, hopefully
 
 	-- View binary files
 	{
 		"ArcaneSpecs/HexEditor.nvim",
 		opts = {},
-		ft = { "bin", "elf", "exe" },
+		ft = { "bin", "elf", "exe" }, -- does not actually load on these files
 	},
 }
