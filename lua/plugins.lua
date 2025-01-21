@@ -14,6 +14,15 @@ return {
 	},
 
 	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+		cond = false,
+	},
+
+	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = { keymaps = { "none" } },
@@ -39,7 +48,7 @@ return {
 						"ruff",
 						"clangd",
 						"lua_ls",
-						"jdtls",
+						-- "jdtls",
 					}
 				}
 			},
@@ -50,7 +59,7 @@ return {
 			lspconfig.ruff.setup({})
 			lspconfig.clangd.setup({})
 			lspconfig.lua_ls.setup({})
-			lspconfig.jdtls.setup({})
+			-- lspconfig.jdtls.setup({})
 		end,
 	},
 
@@ -137,6 +146,7 @@ return {
 	},
 
 	-- Java, hopefully
+	{ "mfussenegger/nvim-jdtls", ft = { "java" }, },
 
 	-- View binary files
 	{
