@@ -2,7 +2,8 @@ return {
 	-- Colorscheme
 	{
 		"rebelot/kanagawa.nvim",
-		config = function() vim.cmd.colorscheme("kanagawa") end
+		config = function() vim.cmd.colorscheme("kanagawa") end,
+		event = "VeryLazy",
 	},
 
 	{
@@ -30,10 +31,14 @@ return {
 	},
 
 	-- Nicer help menu
-	{ "anuvyklack/help-vsplit.nvim",    opts = {}, },
+	{
+		"anuvyklack/help-vsplit.nvim",
+		opts = {},
+		event = "VeryLazy",
+	},
 
 	-- Better syntax highlighting
-	{ "nvim-treesitter/nvim-treesitter" },
+	{ "nvim-treesitter/nvim-treesitter", event = "VeryLazy" },
 
 	-- LSP stuff
 	{
@@ -61,6 +66,7 @@ return {
 			lspconfig.lua_ls.setup({})
 			-- lspconfig.jdtls.setup({})
 		end,
+		event = { "BufReadPost", "BufNewFile" },
 	},
 
 	-- Completion
@@ -105,7 +111,8 @@ return {
 				},
 			},
 		},
-		opts_extend = { "sources.default" }
+		opts_extend = { "sources.default" },
+		event = "VeryLazy",
 	},
 
 	-- DAP
@@ -146,7 +153,7 @@ return {
 	},
 
 	-- Java, hopefully
-	{ "mfussenegger/nvim-jdtls", ft = { "java" }, },
+	{ "mfussenegger/nvim-jdtls",         ft = { "java" }, },
 
 	-- View binary files
 	{
