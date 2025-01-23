@@ -1,11 +1,23 @@
 return {
-	-- Colorscheme
+	-- Active colorscheme
 	{
 		"rebelot/kanagawa.nvim",
 		config = function() vim.cmd.colorscheme("kanagawa") end,
 		event = "VeryLazy",
 	},
 
+	-- Other colorschemes
+	{ "rose-pine/neovim",                 lazy = true, name = "rose-pine", },
+	{ "catppuccin/nvim",                  lazy = true, name = "catppuccin", },
+	{ "AlexvZyl/nordic.nvim",             lazy = true },
+	{ "tiagovla/tokyodark.nvim",          lazy = true },
+	{ "projekt0n/github-nvim-theme",      lazy = true },
+	{ "shaunsingh/nord.nvim",             lazy = true },
+	{ "nyoom-engineering/oxocarbon.nvim", lazy = true },
+	{ "dasupradyumna/midnight.nvim",      lazy = true },
+	{ "folke/tokyonight.nvim",            lazy = true },
+
+	-- Better multifile marks
 	{
 		"theprimeagen/harpoon",
 		branch = "harpoon2",
@@ -14,6 +26,7 @@ return {
 		lazy = true,
 	},
 
+	-- Indent lines. Might remove later
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
@@ -23,6 +36,18 @@ return {
 		cond = false,
 	},
 
+	-- Markdown
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.cmd [[Lazy load markdown-preview.nvim]]
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
+
+	-- Fuzzy finder
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -36,6 +61,9 @@ return {
 		opts = {},
 		event = "VeryLazy",
 	},
+
+	-- Undotree
+	{ "mbbill/undotree",                 cmd = { "UndotreeToggle" }, },
 
 	-- Better syntax highlighting
 	{ "nvim-treesitter/nvim-treesitter", event = "VeryLazy" },
@@ -94,7 +122,7 @@ return {
 				preset = 'none',
 				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
 				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-				["<C-y>"] = { "accept" },
+				["<C-CR>"] = { "accept" },
 			},
 			appearance = {
 				use_nvim_cmp_as_default = true,
@@ -153,12 +181,12 @@ return {
 	},
 
 	-- Java, hopefully
-	{ "mfussenegger/nvim-jdtls",         ft = { "java" }, },
+	{ "mfussenegger/nvim-jdtls", ft = { "java" }, },
 
 	-- View binary files
 	{
 		"ArcaneSpecs/HexEditor.nvim",
 		opts = {},
-		ft = { "bin", "elf", "exe" }, -- does not actually load on these files
+		cmd = { "HexToggle", "HexAssemble", "HexDump", "Hexplore" },
 	},
 }

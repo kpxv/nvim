@@ -41,6 +41,12 @@ vim.keymap.set("n", "<C-S-P>", function() require("harpoon"):list():prev() end)
 vim.keymap.set("n", "<C-S-N>", function() require("harpoon"):list():next() end)
 
 
+
+-- Undotree
+
+vim.keymap.set("n", "<leader>u", function() vim.cmd.UndotreeToggle() end)
+
+
 -- fzf-lua
 
 vim.keymap.set("n", "<leader>hh", function() require("fzf-lua").files() end)
@@ -51,3 +57,5 @@ vim.keymap.set("n", "<leader>kt", function() require("fzf-lua").colorschemes() e
 -- LSP
 
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
+vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end)
+vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.hover() end)
