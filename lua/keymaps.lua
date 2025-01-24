@@ -2,6 +2,7 @@ vim.keymap.set("n", "<Space>", "<Nop>")
 vim.keymap.set("n", "-", "<Nop>")
 
 vim.keymap.set("n", "<BS>", "<C-^>")
+vim.keymap.set("n", "0", "|")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -59,3 +60,4 @@ vim.keymap.set("n", "<leader>kt", function() require("fzf-lua").colorschemes() e
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end)
 vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.hover() end)
+vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end)
