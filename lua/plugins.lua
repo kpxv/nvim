@@ -16,6 +16,7 @@ return {
 	{ "nyoom-engineering/oxocarbon.nvim", lazy = true },
 	{ "dasupradyumna/midnight.nvim",      lazy = true },
 	{ "folke/tokyonight.nvim",            lazy = true },
+	{ "oonamo/ef-themes.nvim",            lazy = true },
 
 	-- Better multifile marks
 	{
