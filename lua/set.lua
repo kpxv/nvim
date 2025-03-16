@@ -1,36 +1,35 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 local tab_size = 4
 
-vim.opt.tabstop = tab_size
-vim.opt.softtabstop = tab_size
-vim.opt.shiftwidth = tab_size
-vim.opt.expandtab = false
+vim.o.tabstop = tab_size
+vim.o.softtabstop = tab_size
+vim.o.shiftwidth = tab_size
+vim.o.expandtab = false
 
-vim.opt.smartindent = true
-vim.opt.cindent = true
+vim.o.smartindent = true
+vim.o.cindent = true
 
-vim.opt.cursorline = true
-vim.opt.colorcolumn = "80"
-vim.opt.termguicolors = true
-vim.opt.wrap = false
+vim.o.cursorline = true
+vim.o.colorcolumn = "80"
+vim.o.termguicolors = true
+vim.o.wrap = false
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.o.swapfile = false
+vim.o.backup = false
 vim.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.o.undofile = true
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-vim.opt.scrolloff = 16
-vim.opt.signcolumn = "auto"
-vim.opt.isfname:append("@-@")
+vim.o.scrolloff = 16
 
-vim.opt.updatetime = 200
+vim.o.mouse = ""
+vim.o.updatetime = 200
 
 vim.g.vimtex_view_method = "zathura"
 vim.g.vimtex_view_forward_search_on_start = 0

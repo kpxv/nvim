@@ -27,16 +27,6 @@ return {
 		lazy = true,
 	},
 
-	-- Indent lines. Might remove later
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-		cond = false,
-	},
-
 	-- Markdown
 	{
 		"iamcco/markdown-preview.nvim",

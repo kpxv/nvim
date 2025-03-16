@@ -59,5 +59,8 @@ vim.keymap.set("n", "<leader>kt", function() require("fzf-lua").colorschemes() e
 
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end)
+vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
 vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.hover() end)
 vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end)
+vim.keymap.set("n", "<F3>", function() vim.lsp.buf.code_action() end)
+vim.keymap.set("n", "<F6>", function() vim.diagnostic.open_float() end)
