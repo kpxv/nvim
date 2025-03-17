@@ -48,6 +48,12 @@ return {
 				border = "single",
 				preview = { border = "single" },
 			},
+			fzf_opts = {
+				["+m"] = true,
+				["--cycle"] = true,
+				["--no-scrollbar"] = true,
+				["--bind=tab:down,btab:up"] = true,
+			},
 		},
 		lazy = true,
 	},
