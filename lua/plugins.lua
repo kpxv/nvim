@@ -42,7 +42,13 @@ return {
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = { keymaps = { "none" } },
+		opts = {
+			keymaps = { "none" },
+			winopts = {
+				border = "single",
+				preview = { border = "single" },
+			},
+		},
 		lazy = true,
 	},
 
@@ -76,6 +82,7 @@ return {
 					}
 				}
 			},
+			{ "danymat/neogen", config = true },
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
