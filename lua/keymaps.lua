@@ -64,3 +64,14 @@ vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.hover() end)
 vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end)
 vim.keymap.set("n", "<F3>", function() vim.lsp.buf.code_action() end)
 vim.keymap.set("n", "<F6>", function() vim.diagnostic.open_float() end)
+
+
+-- DAP
+
+vim.keymap.set("n", "<localleader>a", function() require("dap").step_into() end)
+vim.keymap.set("n", "<localleader>o", function() require("dap").step_over() end)
+vim.keymap.set("n", "<localleader>e", function() require("dap").step_out() end)
+vim.keymap.set("n", "<localleader>u", function() require("dap").continue() end)
+vim.keymap.set("n", "<localleader>i", function() require("dap").status() end)
+vim.keymap.set("n", "<localleader>b", function() require("dap").toggle_breakpoint() end)
+vim.keymap.set("n", "<localleader>d", function() require("dapui").toggle() end)

@@ -38,6 +38,15 @@ return {
 		end,
 	},
 
+	-- LaTeX
+	{
+		"lervag/vimtex",
+		lazy = false,
+		init = function()
+			vim.g.vimtex_view_method = "zathura"
+		end
+	},
+
 	-- Fuzzy finder
 	{
 		"ibhagwan/fzf-lua",
@@ -71,24 +80,30 @@ return {
 	-- Better syntax highlighting
 	{ "nvim-treesitter/nvim-treesitter", event = "VeryLazy" },
 
+	-- Lilypond
+	{
+		"martineausimon/nvim-lilypond-suite",
+		opts = {},
+	},
+
 	-- LSP stuff
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			{ "williamboman/mason.nvim", opts = {} },
 			{
-				"williamboman/mason-lspconfig",
+				"brunotvs/mason-lspconfig.nvim",
 				opts = {
 					ensure_installed = {
 						"pyright",
 						"ruff",
 						"clangd",
 						"lua_ls",
-						-- "jdtls",
+						"bashls",
 					}
 				}
 			},
-			{ "danymat/neogen", config = true },
+			{ "danymat/neogen",          config = true },
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
@@ -96,6 +111,8 @@ return {
 			lspconfig.ruff.setup({})
 			lspconfig.clangd.setup({})
 			lspconfig.lua_ls.setup({})
+			lspconfig.bashls.setup({})
+			lspconfig.ltex_plus.setup({})
 			-- lspconfig.jdtls.setup({})
 		end,
 		event = { "BufReadPost", "BufNewFile" },
@@ -114,14 +131,23 @@ return {
 	},
 
 	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		-- build = "make install_jsregexp"
+	},
+
+	{
 		'saghen/blink.cmp',
 		dependencies = {
-			'rafamadriz/friendly-snippets',
+			"rafamadriz/friendly-snippets",
 			"folke/lazydev.nvim",
+			"Kaiser-Yang/blink-cmp-dictionary",
+			"L3MON4D3/LuaSnip",
 		},
 		version = '*',
 		opts = {
 			completion = { list = { selection = { preselect = false, auto_insert = true } } },
+			snippets = { preset = 'luasnip' },
 			keymap = {
 				preset = 'none',
 				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
@@ -133,12 +159,25 @@ return {
 				nerd_font_variant = 'mono'
 			},
 			sources = {
-				default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+				default = { 'dictionary', 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
 				providers = {
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
 						score_offset = 100,
+					},
+					dictionary = {
+						module = 'blink-cmp-dictionary',
+						name = 'Dict',
+						min_keyword_length = 3,
+						max_items = 8,
+						opts = {
+							dictionary_files = function()
+								if vim.bo.filetype == 'lilypond' then -- Add lilypond words to sources
+									return vim.fn.glob(vim.fn.expand('$LILYDICTPATH') .. '/*', true, true)
+								end
+							end,
+						}
 					},
 				},
 			},

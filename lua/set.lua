@@ -28,7 +28,7 @@ vim.o.smartcase = true
 
 vim.o.scrolloff = 16
 
-vim.o.mouse = ""
+-- vim.o.mouse = ""
 vim.o.updatetime = 200
 
 vim.g.vimtex_view_method = "zathura"
@@ -38,4 +38,4 @@ vim.g.vimtex_mappings_disable = {
 }
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = '-'

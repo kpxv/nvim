@@ -15,3 +15,4 @@ require("lazy").setup(require("plugins"), opts)
 
 require("set")
 require("keymaps")
+require("autocmd")
