@@ -6,7 +6,7 @@ local tab_size = 4
 vim.o.tabstop = tab_size
 vim.o.softtabstop = tab_size
 vim.o.shiftwidth = tab_size
-vim.o.expandtab = false
+vim.o.expandtab = true
 
 vim.o.smartindent = true
 vim.o.cindent = true
@@ -28,7 +28,7 @@ vim.o.smartcase = true
 
 vim.o.scrolloff = 16
 
--- vim.o.mouse = ""
+vim.o.mouse = ""
 vim.o.updatetime = 200
 
 vim.g.vimtex_view_method = "zathura"
