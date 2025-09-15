@@ -2,7 +2,9 @@ return {
 	-- Active colorscheme
 	{
 		"rebelot/kanagawa.nvim",
-		config = function() vim.cmd.colorscheme("kanagawa") end,
+		config = function()
+			vim.cmd.colorscheme("kanagawa")
+		end,
 		event = "VeryLazy",
 	},
 
@@ -106,14 +108,13 @@ return {
 			{ "danymat/neogen",          config = true },
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
-			lspconfig.pyright.setup({})
-			lspconfig.ruff.setup({})
-			lspconfig.clangd.setup({})
-			lspconfig.lua_ls.setup({})
-			lspconfig.bashls.setup({})
-			lspconfig.ltex_plus.setup({})
-			-- lspconfig.jdtls.setup({})
+			vim.lsp.enable('pyright')
+			vim.lsp.enable('ruff')
+			vim.lsp.enable('clangd')
+			vim.lsp.enable('lua_ls')
+			vim.lsp.enable('bashls')
+			vim.lsp.enable('texlab')
+			-- vim.lsp.enable('jdtls')
 		end,
 		event = { "BufReadPost", "BufNewFile" },
 	},
@@ -134,56 +135,27 @@ return {
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 		-- build = "make install_jsregexp"
+		config = function()
+			require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/luasnippets/" })
+			require("luasnip").config.set_config({
+				enable_autosnippets = true,
+				store_selection_keys = "<Tab>",
+			})
+		end
 	},
 
 	{
 		'saghen/blink.cmp',
 		dependencies = {
-			"rafamadriz/friendly-snippets",
+			-- "rafamadriz/friendly-snippets",
 			"folke/lazydev.nvim",
 			"Kaiser-Yang/blink-cmp-dictionary",
 			"L3MON4D3/LuaSnip",
 		},
 		version = '*',
-		opts = {
-			completion = { list = { selection = { preselect = false, auto_insert = true } } },
-			snippets = { preset = 'luasnip' },
-			keymap = {
-				preset = 'none',
-				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-				["<C-CR>"] = { "accept" },
-			},
-			appearance = {
-				use_nvim_cmp_as_default = true,
-				nerd_font_variant = 'mono'
-			},
-			sources = {
-				default = { 'dictionary', 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
-				providers = {
-					lazydev = {
-						name = "LazyDev",
-						module = "lazydev.integrations.blink",
-						score_offset = 100,
-					},
-					dictionary = {
-						module = 'blink-cmp-dictionary',
-						name = 'Dict',
-						min_keyword_length = 3,
-						max_items = 8,
-						opts = {
-							dictionary_files = function()
-								if vim.bo.filetype == 'lilypond' then -- Add lilypond words to sources
-									return vim.fn.glob(vim.fn.expand('$LILYDICTPATH') .. '/*', true, true)
-								end
-							end,
-						}
-					},
-				},
-			},
-		},
+		opts = require("blink-conf"),
 		opts_extend = { "sources.default" },
-		event = "VeryLazy",
+		-- event = "VeryLazy",
 	},
 
 	-- DAP
@@ -231,5 +203,18 @@ return {
 		"ArcaneSpecs/HexEditor.nvim",
 		opts = {},
 		cmd = { "HexToggle", "HexAssemble", "HexDump", "Hexplore" },
+	},
+
+	{
+		"codethread/qmk.nvim",
+		opts = {
+			name = "LAYOUT_split_3x6_3",
+			layout = {
+				"_ x x x x x x _ _ _ x x x x x x",
+				"_ x x x x x x _ _ _ x x x x x x",
+				"_ x x x x x x _ _ _ x x x x x x",
+				"_ _ _ _ _ x x x _ x x x _ _ _ _",
+			},
+		},
 	},
 }

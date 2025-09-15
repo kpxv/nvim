@@ -57,10 +57,13 @@ local config = {
 	-- Here you can configure eclipse.jdt.ls specific settings
 	-- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
 	-- for a list of options
-	-- settings = {
-	-- 	java = {
-	-- 	}
-	-- },
+	settings = {
+		java = {
+			format = {
+				enabled = false
+			}
+		}
+	},
 
 	-- Language server `initializationOptions`
 	-- You need to extend the `bundles` with paths to jar files
@@ -76,3 +79,13 @@ local config = {
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
+
+local tab_size = 2
+
+vim.o.tabstop = tab_size
+vim.o.softtabstop = tab_size
+vim.o.shiftwidth = tab_size
+vim.o.expandtab = true
+vim.o.colorcolumn = "120"
+
+vim.keymap.set("n", "<leader>f", "mz:%!clang-format --style='Google' --assume-filename='.java'<CR>`z")

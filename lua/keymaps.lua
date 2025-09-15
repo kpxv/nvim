@@ -12,7 +12,8 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("x", "<leader>p", "\"dP")
+vim.keymap.set("n", "<leader>p", "\"+p")
+vim.keymap.set("n", "<leader>P", "\"+P")
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
@@ -52,7 +53,14 @@ vim.keymap.set("n", "<leader>u", function() vim.cmd.UndotreeToggle() end)
 
 vim.keymap.set("n", "<leader>hh", function() require("fzf-lua").files() end)
 vim.keymap.set("n", "<leader>he", function() require("fzf-lua").live_grep() end)
+vim.keymap.set("n", "<leader>hs", function() require("fzf-lua").lsp_document_symbols() end)
+vim.keymap.set("n", "<leader>hws", function() require("fzf-lua").lsp_workspace_symbols() end)
+vim.keymap.set("n", "<leader>hr", function() require("fzf-lua").lsp_references() end)
 vim.keymap.set("n", "<leader>kt", function() require("fzf-lua").colorschemes() end)
+
+
+-- NetRW
+vim.keymap.set("n", "<leader>ha", function() vim.cmd.Explore() end)
 
 
 -- LSP
@@ -60,7 +68,7 @@ vim.keymap.set("n", "<leader>kt", function() require("fzf-lua").colorschemes() e
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
 vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end)
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
-vim.keymap.set("i", "<C-i>", function() vim.lsp.buf.hover() end)
+vim.keymap.set("i", "<C-k>", function() vim.lsp.buf.hover() end)
 vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end)
 vim.keymap.set("n", "<F3>", function() vim.lsp.buf.code_action() end)
 vim.keymap.set("n", "<F6>", function() vim.diagnostic.open_float() end)
@@ -75,3 +83,5 @@ vim.keymap.set("n", "<localleader>u", function() require("dap").continue() end)
 vim.keymap.set("n", "<localleader>i", function() require("dap").status() end)
 vim.keymap.set("n", "<localleader>b", function() require("dap").toggle_breakpoint() end)
 vim.keymap.set("n", "<localleader>d", function() require("dapui").toggle() end)
+
+
