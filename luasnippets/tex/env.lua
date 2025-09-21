@@ -16,7 +16,7 @@ return {
 			<>
 		\end{<>}
 		]],
-			{ i(1), i(2), i(1) }
+			{ i(1), i(2), rep(1) }
 		)
 	),
 	s({ trig = ";itmz", snippetType = "autosnippet"},

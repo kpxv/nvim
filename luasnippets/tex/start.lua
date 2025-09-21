@@ -10,8 +10,8 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-	s({ trig = ";start", snippetType = "autosnippet"},
-		fmta([[
+    s({ trig = ";start", snippetType = "autosnippet" },
+        fmta([[
 		\documentclass{article}
 
 		\usepackage[a4paper, margin=1in]{geometry}
@@ -27,17 +27,20 @@ return {
 
 		\end{document}
 		]],
-			{ i(1), i(0) }
-		)
-	),
-	s({ trig = ";smath", snippetType = "autosnippet"},
-		fmta([[
+            { i(1), i(0) }
+        )
+    ),
+    s({ trig = ";smath", snippetType = "autosnippet" },
+        fmta([[
 		\documentclass{article}
 
+        \usepackage{graphicx}
 		\usepackage[a4paper, margin=1in]{geometry}
 		\usepackage{amsmath}
 		\usepackage{IEEEtrantools}
 
+        \graphicspath{{./assets/}}
+
 		\title{<>}
 		\author{Aden Perry}
 		\date{\today}
@@ -49,11 +52,11 @@ return {
 
 		\end{document}
 		]],
-			{ i(1), i(0) }
-		)
-	),
-	s({ trig = ";sfren", snippetType = "autosnippet"},
-		fmta([[
+            { i(1), i(0) }
+        )
+    ),
+    s({ trig = ";sfren", snippetType = "autosnippet" },
+        fmta([[
 		\documentclass{article}
 
 		\usepackage[a4paper, margin=1in]{geometry}
@@ -70,7 +73,33 @@ return {
 
 		\end{document}
 		]],
-			{ i(1), i(0) }
-		)
-	)
+            { i(1), i(0) }
+        )
+    ),
+    s({ trig = ";scmpe", snippetType = "autosnippet" },
+        fmta([[
+        \documentclass{article}
+
+        \usepackage{graphicx}
+		\usepackage[a4paper, margin=1in]{geometry}
+		\usepackage{amsmath}
+		\usepackage{IEEEtrantools}
+        \usepackage{karnaugh-map}
+
+        \graphicspath{{./assets/}}
+
+		\title{<>}
+		\author{Aden Perry}
+		\date{\today}
+
+		\begin{document}
+		\maketitle
+
+		<>
+
+		\end{document}
+        ]],
+            { i(1), i(0) }
+        )
+    ),
 }
