@@ -46,4 +46,14 @@ return {
 			{ i(1) }
 		)
 	),
+    s({ trig = ";kmap", snippetType = "autosnippet"},
+        fmta([[
+        \begin{karnaugh-map}(label=corner)[<>][<>][<>][$<>$][$<>$][$<>$][$<>$]
+        	<>
+            \autoterms[<>]
+        \end{karnaugh-map}
+        ]],
+            { i(1), i(2), i(3), i(4), i(5), i(6), i(7), i(9), i(8) }
+        )
+    ),
 }
