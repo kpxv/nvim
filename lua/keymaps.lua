@@ -83,5 +83,3 @@ vim.keymap.set("n", "<localleader>u", function() require("dap").continue() end)
 vim.keymap.set("n", "<localleader>i", function() require("dap").status() end)
 vim.keymap.set("n", "<localleader>b", function() require("dap").toggle_breakpoint() end)
 vim.keymap.set("n", "<localleader>d", function() require("dapui").toggle() end)
-
-
