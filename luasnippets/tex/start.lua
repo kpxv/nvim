@@ -78,27 +78,27 @@ return {
     ),
     s({ trig = ";scmpe", snippetType = "autosnippet" },
         fmta([[
-        \documentclass{article}
+\documentclass{article}
 
-        \usepackage{graphicx}
-		\usepackage[a4paper, margin=1in]{geometry}
-		\usepackage{amsmath}
-		\usepackage{IEEEtrantools}
-        \usepackage{karnaugh-map}
+\usepackage{graphicx}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{IEEEtrantools}
+\usepackage{karnaugh-map}
 
-        \graphicspath{{./assets/}}
+\graphicspath{{./assets/}}
 
-		\title{<>}
-		\author{Aden Perry}
-		\date{\today}
+\title{<>}
+\author{Aden Perry}
+\date{\today}
 
-		\begin{document}
-		\maketitle
+\begin{document}
+\maketitle
 
-		<>
+<>
 
-		\end{document}
-        ]],
+\end{document}
+]],
             { i(1), i(0) }
         )
     ),
