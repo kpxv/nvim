@@ -34,12 +34,12 @@ return {
         fmta([[
 		\documentclass{article}
 
-        \usepackage{graphicx}
+		\usepackage{graphicx}
 		\usepackage[a4paper, margin=1in]{geometry}
 		\usepackage{amsmath}
 		\usepackage{IEEEtrantools}
 
-        \graphicspath{{./assets/}}
+		\graphicspath{{./assets/}}
 
 		\title{<>}
 		\author{Aden Perry}
