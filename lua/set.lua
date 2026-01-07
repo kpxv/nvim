@@ -34,6 +34,7 @@ vim.o.updatetime = 200
 vim.g.vimtex_view_method = "zathura"
 vim.g.vimtex_view_forward_search_on_start = 0
 vim.g.vimtex_compiler_latexmk = { options = { '-shell-escape' } }
+vim.g.vimtex_compiler_latexmk_engines = {_ = '-lualatex'}
 vim.g.vimtex_mappings_disable = {
 	["n"] = { "tse", "tsc", "ts$", "tsd", "tsD", "tsf", "tsb" }
 }
