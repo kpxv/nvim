@@ -31,6 +31,14 @@ return {
 		{ t("\\Delta "), }
 	),
 	s(
+		{ trig = ";s ", snippetType = "autosnippet", },
+		{ t("\\sigma "), }
+	),
+	s(
+		{ trig = ";S ", snippetType = "autosnippet", },
+		{ t("\\Sigma "), }
+	),
+	s(
 		{ trig = ";int", snippetType = "autosnippet", },
 		{ t("\\integral"), }
 	),
