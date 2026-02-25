@@ -116,6 +116,7 @@ return {
             vim.lsp.enable('bashls')
             vim.lsp.enable('texlab')
             vim.lsp.enable('biome')
+            vim.lsp.enable('vhdl_ls')
             -- vim.lsp.enable('jdtls')
         end,
         -- event = { "BufReadPost", "BufNewFile" },
